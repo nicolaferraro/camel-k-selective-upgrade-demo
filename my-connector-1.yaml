@@ -1,0 +1,21 @@
+apiVersion: camel.apache.org/v1alpha1
+kind: KameletBinding
+metadata:
+  name: my-connector-1
+  namespace: user
+  annotations:
+    camel.apache.org/operator.id: "v1"
+    camel.apache.org/platform.id: "camel-k-v1"
+spec:
+  source:
+    ref:
+      apiVersion: camel.apache.org/v1alpha1
+      kind: Kamelet
+      name: timer-source
+    properties:
+      message: "CONN-1: We got a message from the Kafka man!"
+  sink:
+    ref:
+      apiVersion: camel.apache.org/v1alpha1
+      kind: Kamelet
+      name: log-sink

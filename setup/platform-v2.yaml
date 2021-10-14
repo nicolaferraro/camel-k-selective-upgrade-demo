@@ -1,0 +1,16 @@
+apiVersion: camel.apache.org/v1
+kind: IntegrationPlatform
+metadata:
+  labels:
+    app: camel-k
+  annotations:
+    camel.apache.org/secondary.platform: "true"
+    camel.apache.org/operator.id: "v2"
+  name: camel-k-v2
+  namespace: default
+spec:
+  build:
+    publishStrategy: Spectrum
+    registry:
+      address: 10.109.157.112
+      insecure: true
